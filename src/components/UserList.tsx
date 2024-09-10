@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../features/userSlice";
-import { RootState, AppDispatch } from "../store/store";
+import { AppDispatch, RootState } from "../store/store";
+import FilterComponent from "./FilterComponent";
+import TableComponent from "./TableComponent";
+import SpinnerLoading from "./SpinnerLoading";
 
 const UserList: React.FC = () => {
-  const dispatch: AppDispatch = useDispatch();
-  const { users, status } = useSelector((state: RootState) => state.users);
+  const dispatch = useDispatch<AppDispatch>();
+  const status = useSelector((state: RootState) => state.users.status);
 
   useEffect(() => {
     if (status === "idle") {
@@ -13,24 +16,19 @@ const UserList: React.FC = () => {
     }
   }, [dispatch, status]);
 
-  if (status === "loading") {
-    return <div>Loading...</div>;
-  }
-
-  if (status === "failed") {
-    return <div>Failed to load users.</div>;
-  }
-
   return (
-    <div>
+    <div className="p-4" style={{ minHeight: "calc(90vh - 56px )" }}>
       <h2>Users List</h2>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            {user.name} - {user.email}
-          </li>
-        ))}
-      </ul>
+      {status === "loading" && <SpinnerLoading />}
+      {status === "failed" && (
+        <p className="text-danger">Failed to load users.</p>
+      )}
+      {status === "succeeded" && (
+        <div>
+          <FilterComponent />
+          <TableComponent />
+        </div>
+      )}
     </div>
   );
 };
