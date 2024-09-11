@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { IUser } from "../interfaces/user.interface";
@@ -11,7 +11,7 @@ const TableComponent: React.FC = () => {
     direction: "asc" | "desc";
   } | null>(null);
 
-  const sortedUsers = React.useMemo(() => {
+  const sortedUsers = useMemo(() => {
     const sortableUsers = [...users];
     if (sortConfig !== null) {
       sortableUsers.sort((a, b) => {

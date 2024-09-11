@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# Users
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React apclication to fetch users from API and display them in table.
 
-Currently, two official plugins are available:
+# Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- Redux
+- TypeScript
+- React Bootstrap
 
-## Expanding the ESLint configuration
+# Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Filter the table by name, username, email, and phone.
+- Sorting each column
+- Data is save in Redux Store
+- Information about loading and failed fetching
+- Responsive view with the scroll table on small screens
 
-- Configure the top-level `parserOptions` property like this:
+# ScreenShots
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+![Preview Screenshoot1](/screenshots/1.png)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Loading
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+![Preview Screenshoot2](/screenshots/2.png)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Failed
+
+![Preview Screenshoot3](/screenshots/3.png)
+
+### Redux
+
+![Preview Screenshoot4](/screenshots/4.png)
+
+### Mobile view
+
+![Preview Screenshoot5](/screenshots/5.png)
+
