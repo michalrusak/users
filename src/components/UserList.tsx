@@ -18,7 +18,7 @@ const UserList: React.FC = () => {
 
   return (
     <div className="p-4" style={{ minHeight: "calc(90vh - 56px )" }}>
-      <h2>Users List</h2>
+      <h2 className="mx-2 mb-4">Users List</h2>
       {status === "loading" && <SpinnerLoading />}
       {status === "failed" && (
         <p className="text-danger">Failed to load users.</p>

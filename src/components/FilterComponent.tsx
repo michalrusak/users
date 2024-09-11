@@ -12,7 +12,7 @@ const FilterComponent: React.FC = () => {
   };
 
   return (
-    <div className="m-3 w-50" style={{ minWidth: "250px" }}>
+    <div className="m-2 w-50" style={{ minWidth: "250px", maxWidth: "500px" }}>
       <input
         type="text"
         className="form-control"

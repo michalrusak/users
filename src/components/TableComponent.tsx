@@ -13,7 +13,7 @@ const TableComponent: React.FC = () => {
         minHeight: "min-content",
       }}
     >
-      <table className="table table-striped table-hover m-2 p-2">
+      <table className="table table-striped table-hover mx-2 my-3 p-2">
         <thead>
           <tr>
             <th>Name</th>

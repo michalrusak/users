@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { IUserArray } from "../interfaces/user.interface";
+import { config } from "../config/config";
 
 interface UserState {
   users: IUserArray;
@@ -9,7 +10,7 @@ interface UserState {
 }
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
-  const response = await fetch("https://jsonplaceholder.typicode.com/users");
+  const response = await fetch(config.apiURL);
   const data: IUserArray = await response.json();
 
   const filteredData: IUserArray = data.map((user) => ({
